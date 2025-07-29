@@ -3,21 +3,24 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav
-      className="navbar"
-      style={{
-        display: "flex",
-        gap: "1rem",
-        padding: "1rem",
-        background: "#eee",
-      }}
-    >
-      <Link to="/">Diagon Deals</Link>
-      <input type="text" placeholder="Search magical items..." />
-      <div className="nav-links" style={{ display: "flex", gap: "1rem" }}>
+    <nav className="navbar">
+      <Link to="/" style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
+        Diagon Deals
+      </Link>
+
+      <input
+        type="text"
+        placeholder="Search magical items..."
+        className="navbar-search"
+      />
+
+      <div className="nav-links">
         <Link to="/support">Support</Link>
         <Link to="/account">Account</Link>
         <Link to="/checkout">Cart</Link>
+        <Link to="/add-product">
+          <button>➕ Add Product</button>
+        </Link>
       </div>
     </nav>
   );
