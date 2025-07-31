@@ -3,6 +3,14 @@ import React from "react";
 const ProductCard = ({ product, onDelete}) => {
   return (
     <div className="product-card">
+
+        {product.image && (
+        <img
+          src={product.image}
+          style={{ width: "150px", height: "150px", objectFit: "cover", marginBottom: "1rem" }}
+        />
+      )}
+
       <h3>{product.title}</h3>
       <p>
         <strong>Category:</strong> {product.category}
