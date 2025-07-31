@@ -17,6 +17,16 @@ function AddProduct() {
 
   const navigate = useNavigate();
 
+  const categories = [
+  "Magical Pet Market",
+  "Wand Shop",
+  "Flying Brooms",
+  "Potion Store",
+  "Spellbooks and Magic",
+  "Magical Artifacts Catalog",
+  "House Starter Packs"
+];
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -66,12 +76,21 @@ function AddProduct() {
             onChange={handleChange}
             required
           />
-          <input
-            name="category"
-            placeholder="Category"
-            onChange={handleChange}
-            required
-          />
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Category</option>
+                {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                {cat}
+                </option>
+                ))}
+              </select>
+
+          
           <input
             name="stock"
             type="number"
