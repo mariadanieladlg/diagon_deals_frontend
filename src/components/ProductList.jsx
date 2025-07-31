@@ -14,10 +14,20 @@ const ProductList = () => {
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
+  const handleDelete = (productId) => {
+    axios
+      .delete(`http://localhost:3001/products/${productId}`)
+      .then(() => {
+        setProducts((prev) => prev.filter((product) => product.id !== productId));
+      })
+      .catch((error) => console.error("Error deleting product:", error));
+  };
+
+
   return (
     <div>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} onDelete={handleDelete} />
       ))}
     </div>
   );

@@ -4,6 +4,7 @@ import AddProduct from "./pages/AddProduct";
 import "./App.css";
 
 function App() {
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
