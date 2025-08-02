@@ -2,13 +2,13 @@ import React from "react";
 
 const Sidebar = ({onCategorySelect, selectedCategory}) => {
   const categories = [
-    "Magical Pet Market",
-    "Wand Shop",
-    "Flying Brooms",
-    "Potion Store",
-    "Spellbooks and Magic",
-    "Magical Artifacts Catalog",
-    "House Starter Packs",
+    "🐾 Magical Pet Market",
+    "🪄 Wand Shop",
+    "🧹 Flying Brooms",
+    "🧪 Potion Store",
+    "📖 Spellbooks and Magic",
+    "🧿 Magical Artifacts Catalog",
+    "🎓 House Starter Packs",
   ];
 
   return (
