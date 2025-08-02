@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import ProductList from "../components/ProductList";
 
 const HomePage = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
+  
   return (
     <div className="homepage-container">
       <Navbar />
@@ -17,7 +19,10 @@ const HomePage = () => {
           width: "100%",
         }}
       >
-        <Sidebar />
+        <Sidebar 
+        onCategorySelect={setSelectedCategory}
+        selectedCategory={selectedCategory}
+        />
         <div
           className="content-area"
           style={{
@@ -29,7 +34,7 @@ const HomePage = () => {
         >
           <h1>Welcome to Diagon Deals!</h1>
           <p>Explore magical items from the wizarding world 🧙🏽✨</p>
-          <ProductList />
+          <ProductList categoryFilter={selectedCategory}/>
         </div>
       </div>
       <Footer />
