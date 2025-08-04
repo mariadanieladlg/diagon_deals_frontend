@@ -14,7 +14,8 @@ const ProductList = ({ categoryFilter }) => {
           const filtered = allProducts.filter(
             (product) =>
               product.category &&
-              product.category.trim().toLowerCase() === categoryFilter.trim().toLowerCase()
+              product.category.trim().toLowerCase() === categoryFilter.trim().replace(/^[^\w]+/, '').toLowerCase()
+
           );
           setProducts(filtered); 
         } else {
