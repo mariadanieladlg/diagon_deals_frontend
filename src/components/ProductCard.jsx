@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = ({ product, onDelete}) => {
+const ProductCard = ({ product, onDelete, onEdit}) => {
   return (
     <div className="product-card">
 
@@ -43,22 +43,42 @@ const ProductCard = ({ product, onDelete}) => {
           ))}
         </div>
       )}
+          <button
+            onClick={() => onDelete(product.id)}
+            style={{
+                width: "80px",
+                padding: "0.3rem 0.5rem",
+                background: "#d85466ff",
+                color: "white",
+                border: "none",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontSize: "0.85rem",
+                marginRight: "10px",
+                marginTop:"10px",
+                flex: 1,
+              }}
+            >
+              Delete
+          </button>
 
-      <button
-        onClick={() => onDelete(product.id)}
-        style={{
-          marginTop: "1rem",
-          padding: "0.5rem 1rem",
-          background: "#3664c7ff",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
-        }}
-      >
-        Delete
-      </button>
-    </div>
+          <button
+            onClick={() => onEdit(product)}
+            style={{
+                width: "80px",
+                padding: "0.3rem 0.5rem",
+                background: "#4caf50",
+                color: "white",
+                border: "none",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontSize: "0.85rem",
+                flex: 1,
+              }}
+            >
+              Edit
+          </button>
+  </div>
   );
 };
 
