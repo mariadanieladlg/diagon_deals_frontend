@@ -18,14 +18,14 @@ function AddProduct() {
   const navigate = useNavigate();
 
   const categories = [
-  "Magical Pet Market",
-  "Wand Shop",
-  "Flying Brooms",
-  "Potion Store",
-  "Spellbooks and Magic",
-  "Magical Artifacts Catalog",
-  "House Starter Packs"
-];
+    "Magical Pet Market",
+    "Wand Shop",
+    "Flying Brooms",
+    "Potion Store",
+    "Spellbooks and Magic",
+    "Magical Artifacts Catalog",
+    "House Starter Packs",
+  ];
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,7 +43,10 @@ function AddProduct() {
     };
 
     try {
-      await axios.post("http://localhost:3001/products", newProduct);
+      await axios.post(
+        `${import.meta.env.VITE_JSONSERVER_URL}/products`,
+        newProduct
+      );
       alert("Product added successfully!");
       navigate("/");
     } catch (error) {
@@ -76,21 +79,20 @@ function AddProduct() {
             onChange={handleChange}
             required
           />
-            <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Category</option>
-                {categories.map((cat) => (
-                <option key={cat} value={cat}>
+          <select
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Category</option>
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
                 {cat}
-                </option>
-                ))}
-              </select>
+              </option>
+            ))}
+          </select>
 
-          
           <input
             name="stock"
             type="number"

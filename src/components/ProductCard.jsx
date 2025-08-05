@@ -1,15 +1,18 @@
 import React from "react";
 
-const ProductCard = ({ product, onDelete, onEdit}) => {
+const ProductCard = ({ product, onDelete, onEdit }) => {
+  console.log(product.image);
   return (
     <div className="product-card">
-
-        {product.image && (
-        <img
-          src={product.image}
-          style={{ width: "150px", height: "150px", objectFit: "cover", marginBottom: "1rem" }}
-        />
-      )}
+      <img
+        src={product.image}
+        style={{
+          width: "150px",
+          height: "150px",
+          objectFit: "cover",
+          marginBottom: "1rem",
+        }}
+      />
 
       <h3>{product.title}</h3>
       <p>
@@ -43,42 +46,42 @@ const ProductCard = ({ product, onDelete, onEdit}) => {
           ))}
         </div>
       )}
-          <button
-            onClick={() => onDelete(product.id)}
-            style={{
-                width: "80px",
-                padding: "0.3rem 0.5rem",
-                background: "#d85466ff",
-                color: "white",
-                border: "none",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontSize: "0.85rem",
-                marginRight: "10px",
-                marginTop:"10px",
-                flex: 1,
-              }}
-            >
-              Delete
-          </button>
+      <button
+        onClick={() => onDelete(product.id)}
+        style={{
+          width: "80px",
+          padding: "0.3rem 0.5rem",
+          background: "#d85466ff",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+          fontSize: "0.85rem",
+          marginRight: "10px",
+          marginTop: "10px",
+          flex: 1,
+        }}
+      >
+        Delete
+      </button>
 
-          <button
-            onClick={() => onEdit(product)}
-            style={{
-                width: "80px",
-                padding: "0.3rem 0.5rem",
-                background: "#4caf50",
-                color: "white",
-                border: "none",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontSize: "0.85rem",
-                flex: 1,
-              }}
-            >
-              Edit
-          </button>
-  </div>
+      <button
+        onClick={() => onEdit(product)}
+        style={{
+          width: "80px",
+          padding: "0.3rem 0.5rem",
+          background: "#4caf50",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+          fontSize: "0.85rem",
+          flex: 1,
+        }}
+      >
+        Edit
+      </button>
+    </div>
   );
 };
 

@@ -33,7 +33,7 @@ function UpdateProduct() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/products/${id}`)
+      .get(`${import.meta.env.VITE_JSONSERVER_URL}/products/${id}`)
       .then((response) => {
         const product = response.data;
         setFormData({
@@ -54,7 +54,6 @@ function UpdateProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     if (!formData.title || !formData.price || !formData.category) {
       setError("Title, price, and category are required.");
       return;
@@ -69,7 +68,10 @@ function UpdateProduct() {
     };
 
     try {
-      await axios.put(`http://localhost:3001/products/${id}`, updatedProduct);
+      await axios.put(
+        `${import.meta.env.VITE_JSONSERVER_URL}/products/${id}`,
+        updatedProduct
+      );
       alert("✅ Product updated successfully!");
       navigate("/");
     } catch (error) {
@@ -87,9 +89,7 @@ function UpdateProduct() {
       <Navbar />
       <div style={{ padding: "2rem" }}>
         <h2>Update Product</h2>
-        {error && (
-          <p style={{ color: "red", marginBottom: "1rem" }}>{error}</p>
-        )}
+        {error && <p style={{ color: "red", marginBottom: "1rem" }}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <input
             name="title"
