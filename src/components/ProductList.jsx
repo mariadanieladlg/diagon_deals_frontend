@@ -3,16 +3,18 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
 
-const ProductList = ({ categoryFilter }) => {
+const ProductList = ({ categoryFilter, searchTerm }) => {
   const [products, setProducts] = useState([]);
+
   console.log(import.meta.env.VITE_JSONSERVER_URL);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_JSONSERVER_URL}/products`)
       .then((response) => {
-        const allProducts = response.data;
+        let filtered = response.data;
+        
         if (categoryFilter) {
-          const filtered = allProducts.filter(
+          filtered = filtered.filter(
             (product) =>
               product.category &&
               product.category.trim().toLowerCase() ===
@@ -21,13 +23,18 @@ const ProductList = ({ categoryFilter }) => {
                   .replace(/^[^\w]+/, "")
                   .toLowerCase()
           );
-          setProducts(filtered);
-        } else {
-          setProducts(allProducts);
+        } 
+
+        if (searchTerm) {
+          filtered = filtered.filter((product) =>
+            product.title.toLowerCase().includes(searchTerm.toLowerCase())
+          );
         }
+        setProducts(filtered);
+        
       })
       .catch((error) => console.error("Error fetching products:", error));
-  }, [categoryFilter]);
+  }, [categoryFilter, searchTerm]);
 
   const handleDelete = (productId) => {
     axios

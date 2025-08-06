@@ -6,7 +6,8 @@ import ProductList from "../components/ProductList";
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
-  
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <div className="homepage-container">
       <Navbar />
@@ -32,9 +33,17 @@ const HomePage = () => {
             margin: "0 auto",
           }}
         >
+
+          <input
+            type="text"
+            placeholder="Search magical items..."
+            className="navbar-search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
           <h1>Welcome to Diagon Deals!</h1>
           <p>Explore magical items from the wizarding world 🧙🏽✨</p>
-          <ProductList categoryFilter={selectedCategory}/>
+          <ProductList categoryFilter={selectedCategory} searchTerm={searchTerm}/>
         </div>
       </div>
       <Footer />

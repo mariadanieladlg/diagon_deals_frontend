@@ -8,12 +8,6 @@ const Navbar = () => {
         Diagon Deals
       </Link>
 
-      <input
-        type="text"
-        placeholder="Search magical items..."
-        className="navbar-search"
-      />
-
       <div className="nav-links">
         <Link to="/support">Support</Link>
         <Link to="/account">Account</Link>
