@@ -65,7 +65,8 @@ button:focus-visible {
 /* ==== NAVBAR ==== */
 .navbar {
   background-color: #d6c5a5;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,6 +93,18 @@ button:focus-visible {
 .nav-links a {
   color: #5b3a29;
   font-weight: bold;
+}
+.logo-img {
+  height: 200px;
+  object-fit: contain;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.logo-link:hover {
+  filter: brightness(1.05);
 }
 
 /* ==== SIDEBAR ==== */

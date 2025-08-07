@@ -12,7 +12,7 @@ const ProductCard = ({ product, onDelete, onEdit }) => {
         padding: "1.5rem",
       }}
     >
-      {/* Texto a la izquierda */}
+      {/* Text */}
       <div style={{ flex: 1 }}>
         <h3>{product.title}</h3>
         <p>
@@ -84,7 +84,7 @@ const ProductCard = ({ product, onDelete, onEdit }) => {
         </div>
       </div>
 
-      {/* Imagen a la derecha */}
+      {/* Image */}
       <img
         src={product.image}
         alt={product.title}

@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/diagon-deals-store.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/" style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
-        Diagon Deals
+      <Link to="/" className="logo-link">
+        <img src={logo} alt="Diagon Deals Store" className="logo-img" />
       </Link>
 
       <div className="nav-links">
