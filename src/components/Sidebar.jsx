@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sidebar = ({onCategorySelect, selectedCategory}) => {
+const Sidebar = ({ onCategorySelect, selectedCategory }) => {
   const categories = [
     "🐾 Magical Pet Market",
     "🪄 Wand Shop",
@@ -12,22 +12,16 @@ const Sidebar = ({onCategorySelect, selectedCategory}) => {
   ];
 
   return (
-    <aside
-      className="sidebar"
-      style={{ width: "200px", padding: "1rem", background: "#f9f9f9" }}
-    >
-      <h3>Categories</h3>
+    <aside className="sidebar">
+      <h3>📚 Magical Categories</h3>
       <ul>
         {categories.map((cat) => (
-          <li key={cat}
-          onClick={() => onCategorySelect(cat)}
-          style={{
-              cursor: "pointer",
-              padding: "8px 0",
-              fontWeight: selectedCategory === cat ? "bold" : "normal",
-              color: selectedCategory === cat ? "#6d5383ff" : "#333",
-            }}
-          >{cat}
+          <li
+            key={cat}
+            onClick={() => onCategorySelect(cat)}
+            className={selectedCategory === cat ? "selected" : ""}
+          >
+            {cat}
           </li>
         ))}
       </ul>
